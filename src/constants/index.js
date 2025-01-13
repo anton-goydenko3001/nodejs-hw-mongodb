@@ -20,5 +20,4 @@ export const CLOUDINARY = {
   CLOUD_NAME: 'CLOUD_NAME',
   API_KEY: 'API_KEY',
   API_SECRET: 'API_SECRET',
-  //   ENABLE_CLOUDINARY: process.env.ENABLE_CLOUDINARY || 'false',
 };
