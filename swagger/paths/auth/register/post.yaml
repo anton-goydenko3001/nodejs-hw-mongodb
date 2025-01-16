@@ -1,0 +1,54 @@
+tags:
+  - Auth
+summary: Register contact
+operationId: registerContact
+description: 'Register a contact with payload'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - name
+          - password
+          - email
+        properties:
+          name:
+            description: 'Register name'
+            type: string
+            example: 'John Doe'
+          email:
+            description: 'Register email'
+            type: string
+            example: 'example@gmail.com'
+          password:
+            description: 'Register contacts password'
+            type: number
+            example: 123456
+responses:
+  '201':
+    description: Register a contact
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully registered a user!
+            data:
+              type: object
+              $ref: '../../../components/schemas/register.yaml'
+  '409':
+    $ref: '../../../components/responses/user/409.yaml'
+  '500':
+    $ref: '../../../components/responses/500.yaml'

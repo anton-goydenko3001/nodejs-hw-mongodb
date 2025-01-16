@@ -1,0 +1,46 @@
+tags:
+  - Auth
+summary: Reset password
+operationId: ResetPasswordContact
+description: 'Send email to reset the password for a contact'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - email
+        properties:
+          email:
+            description: 'Reset password with email'
+            type: string
+            example: 'example@gmail.com'
+responses:
+  '200':
+    description: Password reset email has been successfully sent
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Reset password email has been successfully sent.
+            data:
+              type: object
+              example: {}
+  '404':
+    $ref: ../../../components/responses/user/404.yaml
+  '409':
+    $ref: ../../../components/responses/user/409.yaml
+  '500':
+    $ref: ../../../components/responses/user/500.yaml
