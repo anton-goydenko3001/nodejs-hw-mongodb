@@ -1,0 +1,51 @@
+tags:
+  - Auth
+summary: Reset password for a contact
+operationId: resetPasswordContact
+description: 'Reset the password of a contact using a token'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - token
+          - password
+        properties:
+          token:
+            description: 'Authentication token for password reset'
+            type: string
+            example: 'nSu9mqGJzsaEGwx4nBXoHGykYumTCbEqUY6Xg5JB'
+          password:
+            description: 'New password for the contact'
+            type: string
+            example: 'newStrongPassword123'
+responses:
+  '201':
+    description: Password has been successfully reset
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Password has been successfully reset.
+            data:
+              type: object
+              example: {}
+  '401':
+    $ref: ../../../components/responses/401.yaml
+  '404':
+    $ref: ../../../components/responses/user/404.yaml
+  '500':
+    $ref: ../../../components/responses/user/500.yaml

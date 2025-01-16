@@ -1,0 +1,18 @@
+type: object
+required:
+  - name
+  - email
+  - password
+properties:
+  name:
+    description: 'Registered contacts name'
+    type: string
+    example: 'John Doe'
+  email:
+    description: 'Registered contacts email'
+    type: string
+    example: 'example@mail.com'
+  password:
+    description: 'The password for the registered contact'
+    type: string
+    example: 'securePassword123'

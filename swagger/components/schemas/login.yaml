@@ -1,0 +1,9 @@
+type: object
+required:
+  - email
+  - password
+properties:
+  accessToken:
+    description: 'Login contacts token'
+    type: string
+    example: PmqiOxAhXQMSEPN4SoNc935/0zTUL/7WYXolvmbDtyLrCmjyujKQwiHIz2qPqfoD7u4RrBM6sSA0tbRhTCbJJw==
